@@ -34,12 +34,20 @@ const routes = [
             const { name = "stranger" } = request.params;
             const { lang } = request.query;
 
-            if(lang === 'id') {
+            if (lang === 'id') {
                 return `Hai, ${name}!`;
             }
-            
+
             return `Hello, ${name}!`;
         }
+    },
+    {
+        method: 'POST',
+        path: '/login',
+        handler: (request, h) => {
+            const { username, password } = request.payload;
+            return `Welcome ${username}!`;
+        },
     },
     {
         method: '*',
